@@ -1,0 +1,24 @@
+{
+  "name": "todolist-nodejs",
+  "version": "1.0.0",
+  "description": "This project for save todo on database.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.js"
+  },
+  "author": "HamidMaster.ir",
+  "license": "ISC",
+  "dependencies": {
+    "@types/node": "^18.15.11",
+    "body-parser": "^1.20.2",
+    "bootstrap": "^5.2.3",
+    "bootstrap-v4-rtl": "^4.6.2-1",
+    "ejs": "^3.1.9",
+    "express": "^4.18.2",
+    "font-awesome": "^4.7.0",
+    "mysql2": "^3.2.0",
+    "nodemon": "^2.0.22",
+    "sequelize": "^6.30.0"
+  }
+}

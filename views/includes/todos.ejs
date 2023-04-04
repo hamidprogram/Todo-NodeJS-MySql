@@ -1,0 +1,54 @@
+<div class="row mx-1 px-5 pb-3 w-80">
+    <div class="col mx-auto">
+      <% if (todos.length > 0) { %>
+        <% for(let todo of todos){ %>
+          <form action="/admin/edit-todo" method="post">
+            <div class="row px-3 align-items-center todo-item rounded">
+                <div class="col-auto m-1 p-0 d-flex align-items-center">
+                  <h2 class="m-0 p-0">
+                    <% if (todo.completed == false) { %>
+                    <a class="fa fa-square-o text-primary btn m-0 p-0" data-toggle="tooltip" data-placement="bottom" title="Mark as complete" href="/admin/complete-todo/<%= todo.id %>"></a>
+                    <% } else { %>
+                    <a
+                      class="fa fa-check-square-o text-primary btn m-0 p-0"
+                      data-toggle="tooltip"
+                      data-placement="bottom"
+                      title="Mark as todo"
+                      href="/admin/complete-todo/<%= todo.id %>"
+                    ></a>
+                    <% } %>
+                  </h2>
+                </div>
+                <div class="col px-1 m-1 d-flex align-items-center">
+                  <input type='hidden' name='id' value="<%= todo.id %>">
+                  <input
+                    name="todo"
+                    type="text"
+                    class="form-control form-control-lg border-0 edit-todo-input bg-transparent rounded px-3"
+                    value="<%= todo.text %>"
+                  />
+                </div>
+                <div class="col-auto m-1 p-0 todo-actions">
+                  <div class="row d-flex align-items-center justify-content-end">
+                    <h5 class="m-0 p-0 px-2">
+                      <% if (todo.completed == false) { %>
+                      <button type="submit" class="fa fa-pencil text-info btn m-0 p-0" data-toggle="tooltip" data-placement="bottom" title="Edit todo"></button>
+                      <% } %>
+                    </h5>
+                    <h5 class="m-0 p-0 px-2">
+                      <a class="fa fa-trash-o text-danger btn m-0 p-0" data-toggle="tooltip" data-placement="bottom" title="Delete todo" href="/admin/delete-todo/<%= todo.id %>"></a>
+                    </h5>
+                  </div>
+                </div>
+              </div>
+            </form>
+        <% } %>
+      <% } else { %>
+      <div class="alert alert-warning mx-auto">
+        <center>
+          <h4 class="alert-heading">No Todos</h4>
+        </center>
+      </div>
+      <% } %>
+    </div>
+  </div>
